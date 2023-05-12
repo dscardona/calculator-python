@@ -18,8 +18,25 @@ def check_score(cards):
 
 user_cards = []
 computer_cards = []
+is_game_over = False
 
 for _ in range(2):
   user_cards.append(deal_card())
   computer_cards.append(deal_card())
+  
+while not is_game_over:
+  user_score = check_score(user_cards)
+  computer_score = check_score(computer_cards)
+  
+  print(f"Your cards: {user_cards}, your score: {user_score}")
+  print(f"Computer's first card: {computer_cards[0]}")
+
+  if user_score == 0 or computer_score == 0 or user_score > 21:
+    is_game_over = True
+  else: 
+    deal_new = input("Do you want another card? Y/n\n")
+    if deal_new == "n":
+      is_game_over = True
+    else:
+      user_cards.append(deal_card())
 
