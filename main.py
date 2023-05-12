@@ -23,14 +23,16 @@ def comprare_scores(user_score, computer_score):
     return "You have blackjack, you win!"
   elif computer_score == 0:
     return "The house has blackjack, you lose."
+  elif user_score > 21 and computer_score > 21:
+    return "You both went over, no winners"
   elif user_score > 21:
     return "You went over 21, you lose."
   elif computer_score > 21:
     return "Your opponen went over 21, you win!"
   elif user_score > computer_score:
     return "You win!"
-  else:
-    "You lose."
+  elif user_score < computer_score:
+    return "You lose."
 
 user_cards = []
 computer_cards = []
@@ -61,3 +63,5 @@ while computer_score < 17 and computer_score != 0:
   computer_score = check_score(computer_cards)
 
 print(comprare_scores(user_score, computer_score))
+print(f" Your final hand: {user_cards}, your final score: {user_score}")
+print(f" The house's hand: {computer_cards}, the house's score: {computer_score}")
