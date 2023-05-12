@@ -40,3 +40,7 @@ while not is_game_over:
     else:
       user_cards.append(deal_card())
 
+while computer_score < 17 and computer_score != 0:
+  computer_cards.append(deal_card())
+  computer_score = check_score(computer_cards)
+
