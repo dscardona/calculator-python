@@ -16,6 +16,22 @@ def check_score(cards):
     cards.append(1)
   return sum(cards)
 
+def comprare_scores(user_score, computer_score):
+  if user_score == computer_score:
+    return "It's a draw!"
+  elif user_score == 0:
+    return "You have blackjack, you win!"
+  elif computer_score == 0:
+    return "The house has blackjack, you lose."
+  elif user_score > 21:
+    return "You went over 21, you lose."
+  elif computer_score > 21:
+    return "Your opponen went over 21, you win!"
+  elif user_score > computer_score:
+    return "You win!"
+  else:
+    "You lose."
+
 user_cards = []
 computer_cards = []
 is_game_over = False
@@ -44,3 +60,4 @@ while computer_score < 17 and computer_score != 0:
   computer_cards.append(deal_card())
   computer_score = check_score(computer_cards)
 
+print(comprare_scores(user_score, computer_score))
